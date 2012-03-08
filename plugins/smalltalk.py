@@ -202,7 +202,7 @@ class smalltalk(Plugin):
         elif language == 'fr-FR':
             self.say(u"Bonjour {0}!".format(self.user_name()));
         else:
-            rep =["Greetings, {0}!","Hello, {0}!","Hi.","Hey.","Hi there!"]
+            rep =["Greetings, {0}!","Hello, {0}!","Hi, {0}!","Hello!","Hi!"]
             self.say(random.choice(rep).format(self.user_name()))
         self.complete_request()
 
