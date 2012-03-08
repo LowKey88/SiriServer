@@ -107,6 +107,13 @@ class smalltalk(Plugin):
             self.say(random.choice(rep))
         self.complete_request()
 
+    @register("en-US", "(how old are you)|(how old.*)")
+    def st_way(self, speech, language):
+        if language == 'en-US':
+            rep = ["Does this concern you?","Why people keep asking me about my age?","I don't think I can answer that."]
+            self.say(random.choice(rep))
+        self.complete_request()
+        
     @register("en-US", "(Should I)|(Should I?)")
     def st_si(self, speech, language):
         if language == 'en-US':
