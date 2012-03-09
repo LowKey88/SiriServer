@@ -115,7 +115,7 @@ class smalltalk(Plugin):
             self.say(random.choice(rep))
         self.complete_request()
 
-   @register("en-US", ".*you merry me")
+    @register("en-US", "(.*Want.*marry*)|(.*Will.*marry*)|(.*Would.*marry*)|(.*Do.*marry*)")
     def st_wymm(self, speech, language):
         if language == 'en-US':
             rep = ["Let's just be friends, OK?","My End User Licensing Agreement does not cover marriage. My apologies.","That's sweet, {0}.Is there anything else I can help you with?"]
@@ -239,18 +239,6 @@ class smalltalk(Plugin):
             self.say("I'm fine, thanks for asking!")
         self.complete_request()
         
-    @register("de-DE", u"(.*möchtest.*heiraten.*)|(.*willst.*heiraten.*)")
-    @register("en-US", "(.*Want.*marry*)|(.*Will.*marry*)")
-    @register("fr-FR", ".*(veux|veut).*épouser.*")
-    def st_marry_me(self, speech, language):
-        if language == 'de-DE':
-            self.say("Nein Danke, ich stehe auf das schwarze iPhone von Deinem Kollegen.")
-        elif language == 'fr-FR':
-            self.say("Non merci, je suis amoureux de l'iPhone blanc de ton ami.");
-        else:
-            self.say("No thank you, I'm in love with the black iPhone from you friend.")
-        self.complete_request()
-
     @register("de-DE", u".*erzähl.*Witz.*")
     @register("en-US", ".*tell.*joke*")
     @register("fr-FR", ".*(dit|dis|raconte).*blague*")
