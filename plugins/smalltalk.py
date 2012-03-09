@@ -47,7 +47,8 @@ class smalltalk(Plugin):
     @register("en-US", "(testing)|(test)")
     def st_test(self, speech, language):
         if language == 'en-US':
-            self.say("Mission Control, I read you loud and clear, {0}".format(self.user_name()))
+            rep = ["Mission Control, I read you loud and clear.","Is this thing on?","I can hear you.","OK, everything checks out."]
+            self.say(random.choice(rep))
         self.complete_request()
 
     @register("en-US", "(Okay)|(Ok)|(Okie)")
@@ -112,6 +113,13 @@ class smalltalk(Plugin):
         if language == 'en-US':
             rep = ["Does this concern you?","Why people keep asking me about my age?","I don't think I can answer that."]
             self.say(random.choice(rep))
+        self.complete_request()
+
+   @register("en-US", "*.you merry me")
+    def st_hoay(self, speech, language):
+        if language == 'en-US':
+            rep = ["Let's just be friends, OK?","My End User Licensing Agreement does not cover marriage. My apologies.","That's sweet, {0}.Is there anything else I can help you with?"]
+            self.say(random.choice(rep).format(self.user_name()))
         self.complete_request()
         
     @register("en-US", "(Should I)|(Should I?)")
