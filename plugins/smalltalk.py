@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-#by Joh Gerna
+#by Joh Gerna / HisyamNasir
 
 from plugin import *
 import random
@@ -107,6 +107,13 @@ class smalltalk(Plugin):
             self.say(random.choice(rep))
         self.complete_request()
 
+    @register("en-US", "How old are you")
+    def st_hoay(self, speech, language):
+        if language == 'en-US':
+            rep = ["Does this concern you?","Why people keep asking me about my age?","I don't think I can answer that."]
+            self.say(random.choice(rep))
+        self.complete_request()
+        
     @register("en-US", "(Should I)|(Should I?)")
     def st_si(self, speech, language):
         if language == 'en-US':
@@ -195,7 +202,8 @@ class smalltalk(Plugin):
         elif language == 'fr-FR':
             self.say(u"Bonjour {0}!".format(self.user_name()));
         else:
-            self.say(u"Greetings, {0}!".format(self.user_name()))
+            rep =["Greetings, {0}!","Hello, {0}!","Hi, {0}!","Hello!","Hi!"]
+            self.say(random.choice(rep).format(self.user_name()))
         self.complete_request()
 
     @register("de-DE", ".*Dein Name.*")
