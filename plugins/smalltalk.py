@@ -115,8 +115,8 @@ class smalltalk(Plugin):
             self.say(random.choice(rep))
         self.complete_request()
 
-   @register("en-US", "*.you merry me")
-    def st_hoay(self, speech, language):
+   @register("en-US", ".*you merry me")
+    def st_wymm(self, speech, language):
         if language == 'en-US':
             rep = ["Let's just be friends, OK?","My End User Licensing Agreement does not cover marriage. My apologies.","That's sweet, {0}.Is there anything else I can help you with?"]
             self.say(random.choice(rep).format(self.user_name()))
